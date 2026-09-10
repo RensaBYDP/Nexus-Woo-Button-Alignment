@@ -2,10 +2,8 @@
 Contributors: renier
 Tags: woocommerce, buttons, alignment, layout
 Requires at least: 5.0
-Tested up to: 6.6
-Stable tag: 1.0.0
 Tested up to: 6.7
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 
 == Description ==
@@ -18,7 +16,7 @@ This ensures a clean, consistent, and professional layout across all product lis
 3. Buttons will automatically align — no settings required
 
 == Changelog ==
-= 1.0.2 =
+= 1.0.3 =
 * Added GitHub automatic update integration for seamless one-click updates directly from WordPress.
 
 = 1.0.0 =

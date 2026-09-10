@@ -75,15 +75,17 @@ class Nexus_Woo_Updater
      * @param string $file Main plugin file path.
      * @param string $github_username GitHub owner.
      * @param string $github_repo GitHub repository name.
+     * @param string|null $version Plugin version string.
      * @param string|null $access_token Optional access token.
      */
-    public function __construct($file, $github_username, $github_repo, $access_token = null)
+    public function __construct($file, $github_username, $github_repo, $version = null, $access_token = null)
     {
         $this->file            = $file;
         $this->plugin_slug     = plugin_basename($file);
         $this->slug            = dirname($this->plugin_slug);
         $this->github_username = $github_username;
         $this->github_repo     = $github_repo;
+        $this->version         = !empty($version) ? $version : null;
         $this->access_token    = $access_token;
 
         $this->init();
@@ -94,12 +96,16 @@ class Nexus_Woo_Updater
      */
     protected function init()
     {
-        // Retrieve plugin version from plugin data header.
-        if (!function_exists('get_plugin_data')) {
-            require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        if (empty($this->version)) {
+            if (defined('NEXUS_WOO_BUTTON_ALIGNMENT_VERSION')) {
+                $this->version = NEXUS_WOO_BUTTON_ALIGNMENT_VERSION;
+            } elseif (function_exists('get_plugin_data')) {
+                $plugin_data   = get_plugin_data($this->file, false, false);
+                $this->version = !empty($plugin_data['Version']) ? $plugin_data['Version'] : '1.0.0';
+            } else {
+                $this->version = '1.0.0';
+            }
         }
-        $plugin_data   = get_plugin_data($this->file, false, false);
-        $this->version = !empty($plugin_data['Version']) ? $plugin_data['Version'] : '1.0.0';
 
         // Check for updates via WordPress update transients.
         add_filter('pre_set_site_transient_update_plugins', array($this, 'check_update'));
