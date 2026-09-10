@@ -4,7 +4,7 @@
  * Plugin Name: Nexus Woo Button Alignment
  * Plugin URI: https://github.com/yourname/Nexus-Woo-Button-Alignment
  * Description: Automatically aligns WooCommerce buttons on shop, category, and product loop pages for a cleaner and more consistent layout.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Rensa, Build Your Digital Playground
  * Author URI: https://github.com/RensaBYDP
  * License: GPL2
