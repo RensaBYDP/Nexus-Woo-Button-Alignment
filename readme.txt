@@ -1,5 +1,5 @@
 === Nexus Woo Button Alignment ===
-Contributors: renier
+Contributors: Rensa, Build Your Digital Palyground
 Tags: woocommerce, buttons, alignment, layout
 Requires at least: 5.0
 Tested up to: 6.7
