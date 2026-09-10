@@ -1,0 +1,17 @@
+/* Nexus Woo Button Alignment */
+
+.woocommerce ul.products li.product .button,
+.woocommerce ul.products li.product .add_to_cart_button,
+.woocommerce ul.products li.product .product_type_simple,
+.woocommerce ul.products li.product .product_type_variable {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+}
+
+.woocommerce ul.products li.product {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
