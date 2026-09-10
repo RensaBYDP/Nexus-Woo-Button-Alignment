@@ -34,6 +34,7 @@ if (!class_exists('Nexus_Woo_Button_Alignment')) {
         public function __construct()
         {
             add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
+            add_action('admin_notices', array($this, 'admin_notice'));
             $this->init_updater();
         }
 
@@ -79,6 +80,46 @@ if (!class_exists('Nexus_Woo_Button_Alignment')) {
                 array(),
                 NEXUS_WOO_BUTTON_ALIGNMENT_VERSION
             );
+        }
+
+        public function admin_notice()
+        {
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+
+            if (!class_exists('WooCommerce')) {
+                echo '<div class="notice notice-warning"><p><strong>Nexus Woo Button Alignment:</strong> WooCommerce is not active. Install and activate WooCommerce to enable product button alignment.</p></div>';
+                return;
+            }
+
+            if (!is_admin()) {
+                $is_product_loop = false;
+
+                if (function_exists('is_shop') && is_shop()) {
+                    $is_product_loop = true;
+                }
+
+                if (function_exists('is_product_category') && is_product_category()) {
+                    $is_product_loop = true;
+                }
+
+                if (function_exists('is_product_tag') && is_product_tag()) {
+                    $is_product_loop = true;
+                }
+
+                if (function_exists('is_post_type_archive') && is_post_type_archive('product')) {
+                    $is_product_loop = true;
+                }
+
+                if (function_exists('is_tax') && is_tax(array('product_cat', 'product_tag'))) {
+                    $is_product_loop = true;
+                }
+
+                if (!$is_product_loop) {
+                    echo '<div class="notice notice-info"><p><strong>Nexus Woo Button Alignment:</strong> This plugin only applies on WooCommerce product loop pages such as shop, category, and tag archives.</p></div>';
+                }
+            }
         }
 
         protected function init_updater()
