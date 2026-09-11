@@ -22,7 +22,7 @@
  * Requires Plugins:     woocommerce
  * License:              GPL-2.0-or-later
  * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:          Nexus-Woo-Button-Alignment-main
+ * Text Domain:          nexus-woo-button-alignment-main
  * Domain Path:          /languages
  */
 

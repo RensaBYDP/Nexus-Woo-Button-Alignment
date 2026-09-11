@@ -13,7 +13,6 @@ Requires WooCommerce: 3.0
 
 Align WooCommerce product buttons for clean, consistent product grids.
 
-Description
 Nexus‑Woo‑Button‑Alignment fixes one of the most common WooCommerce layout issues: misaligned “Add to cart” buttons caused by product titles, prices, or descriptions having different heights.
 
 Uneven grids look messy and unprofessional. This plugin solves that instantly using a lightweight JavaScript alignment script and a small wrapper, with no template overrides or theme hacking.
