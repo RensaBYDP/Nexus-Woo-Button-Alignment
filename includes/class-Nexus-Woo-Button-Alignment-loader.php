@@ -55,6 +55,11 @@ class Nexus_WBA_Loader
      * Add a new action to the collection to be registered with WordPress.
      *
      * @since    1.0.1
+     * @param string $hook WordPress action hook name.
+     * @param object $component Object that owns the callback.
+     * @param string $callback Callback method name.
+     * @param int $priority Hook execution priority.
+     * @param int $accepted_args Number of accepted callback arguments.
      */
     public function add_action($hook, $component, $callback, $priority = 10, $accepted_args = 1)
     {
@@ -65,6 +70,11 @@ class Nexus_WBA_Loader
      * Add a new filter to the collection to be registered with WordPress.
      *
      * @since    1.0.1
+     * @param string $hook WordPress filter hook name.
+     * @param object $component Object that owns the callback.
+     * @param string $callback Callback method name.
+     * @param int $priority Hook execution priority.
+     * @param int $accepted_args Number of accepted callback arguments.
      */
     public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1)
     {
@@ -76,6 +86,13 @@ class Nexus_WBA_Loader
      *
      * @since    1.0.1
      * @access   private
+     * @param array $hooks Registered hook definitions.
+     * @param string $hook WordPress hook name.
+     * @param object $component Object that owns the callback.
+     * @param string $callback Callback method name.
+     * @param int $priority Hook execution priority.
+     * @param int $accepted_args Number of accepted callback arguments.
+     * @return array Updated hook definitions.
      */
     private function add($hooks, $hook, $component, $callback, $priority, $accepted_args)
     {
