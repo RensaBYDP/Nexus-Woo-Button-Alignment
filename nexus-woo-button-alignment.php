@@ -73,8 +73,6 @@ function nexus_wba_run()
         if (is_admin()) {
             add_action('admin_notices', 'nexus_wba_missing_woocommerce_notice');
         }
-
-        return;
     }
 
     $plugin = new Nexus_WBA();

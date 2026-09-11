@@ -1,4 +1,31 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+.nexus-wba-compatibility-table {
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+.nexus-wba-compatibility-table th,
+.nexus-wba-compatibility-table td {
+    vertical-align: middle;
+}
+
+.nexus-wba-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.nexus-wba-status-pass {
+    color: #116329;
+    background: #d1e7dd;
+}
+
+.nexus-wba-status-fail {
+    color: #842029;
+    background: #f8d7da;
+}
+
+.nexus-wba-status-info {
+    color: #055160;
+    background: #cff4fc;
+}

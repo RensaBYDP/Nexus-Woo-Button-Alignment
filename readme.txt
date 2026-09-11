@@ -5,7 +5,7 @@ Tags: woocommerce, alignment, layout, buttons, product grid
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,8 @@ Compatible with Elementor product grids
 
 Zero configuration — activate and it works
 
+Admin compatibility check for WordPress, PHP, WooCommerce, and the active theme
+
 Lightweight JavaScript and CSS solution
 
 Installation
@@ -56,7 +58,10 @@ Can I use it inside my own theme?
 Yes. The plugin is fully theme‑friendly and can be extended or overridden in child themes.
 
 Does it work with WooCommerce Blocks?
-No. WooCommerce Blocks use a different product grid structure that does not allow separating button elements.
+Yes. Version 1.0.3 supports the standard WooCommerce product-template and product-grid block structures. Custom block markup may still require theme-specific adjustments.
+
+Where can I view the compatibility check?
+Go to Settings → Woo Button Alignment in the WordPress admin area. The check reports the detected WordPress, PHP, WooCommerce, and active theme details.
 
 Will it work on mobile?
 Yes. The layout adjusts automatically on all screen sizes.
@@ -73,6 +78,10 @@ Example aligned grid (Storefront Theme)
 Example aligned grid (Twenty Seventeen Theme)
 
 Changelog
+1.0.3
+Added a compatibility check for WordPress, PHP, WooCommerce, and the active theme.
+Added support for standard WooCommerce product blocks.
+
 1.0.2
 Improved product row detection and added flex layout support for button alignment.
 
