@@ -52,7 +52,10 @@ $images_url = plugin_dir_url(dirname(__FILE__)) . 'images/';
         <div>
             <span class="nexus-wba-eyebrow"><?php esc_html_e('Compatibility health', 'nexus-woo-button-alignment-main'); ?></span>
             <h2><?php echo esc_html($summary['label']); ?></h2>
-            <p><?php printf(esc_html__('%1$d of %2$d environment checks passed.', 'nexus-woo-button-alignment-main'), (int) $summary['passed'], (int) $summary['total']); ?></p>
+            <p><?php
+                /* translators: 1: number of passed checks, 2: total number of checks. */
+                printf(esc_html__('%1$d of %2$d environment checks passed.', 'nexus-woo-button-alignment-main'), (int) $summary['passed'], (int) $summary['total']);
+                ?></p>
         </div>
         <div class="nexus-wba-health-actions">
             <?php if ($shop_url) : ?>
@@ -64,7 +67,10 @@ $images_url = plugin_dir_url(dirname(__FILE__)) . 'images/';
 
     <div class="nexus-wba-section-heading">
         <h2><?php esc_html_e('Platform details', 'nexus-woo-button-alignment-main'); ?></h2>
-        <span><?php printf(esc_html__('Checked %s', 'nexus-woo-button-alignment-main'), esc_html($checked_at)); ?></span>
+        <span><?php
+                /* translators: %s: date and time when the compatibility check ran. */
+                printf(esc_html__('Checked %s', 'nexus-woo-button-alignment-main'), esc_html($checked_at));
+                ?></span>
     </div>
 
     <table class="widefat striped nexus-wba-compatibility-table">

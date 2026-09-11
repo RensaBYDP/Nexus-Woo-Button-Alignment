@@ -5,7 +5,7 @@ Tags: woocommerce, alignment, layout, buttons, product grid
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,9 @@ Example aligned grid (Storefront Theme)
 Example aligned grid (Twenty Seventeen Theme)
 
 Changelog
+1.0.1
+Expanded the WooCommerce submenu with a health overview, platform details, supported layout modes, shop link, refresh check, troubleshooting links, banner, and plugin logo.
+
 1.0.0
 Expanded the WooCommerce submenu with a health overview, platform details, supported layout modes, shop link, refresh check, and troubleshooting links.
 Added the admin banner and plugin logo presentation.
@@ -92,5 +95,8 @@ Compatible with WooCommerce 10.3.4
 Compatible with WordPress 6.8.3
 
 Upgrade Notice
-1.0.2
-Maintenance release — recommended for all users
+1.0.1
+Adds the WooCommerce compatibility dashboard and GitHub release update support.
+
+GitHub Releases
+For automatic updates, publish a GitHub Release with a tag such as v1.0.1 and attach nexus-woo-button-alignment.zip. The ZIP must contain the plugin folder at its top level and must include nexus-woo-button-alignment.php in that folder.
