@@ -1,7 +1,6 @@
 .nexus-wba-header-banner {
     display: block;
     width: 100%;
-    max-width: 1200px;
     height: auto;
     margin: 0 0 24px;
 }
@@ -10,7 +9,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    max-width: 1000px;
+    width: 100%;
     margin-bottom: 24px;
 }
 
@@ -34,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1000px;
+    width: 100%;
     padding: 20px 24px;
     margin: 24px 0;
     border-left: 4px solid #2271b1;
@@ -71,7 +70,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    max-width: 1000px;
+    width: 100%;
 }
 
 .nexus-wba-section-heading h2 {
@@ -84,8 +83,15 @@
 }
 
 .nexus-wba-compatibility-table {
-    max-width: 1000px;
+    width: 100%;
     margin-top: 20px;
+    table-layout: fixed;
+}
+
+.nexus-wba-compatibility-table th,
+.nexus-wba-compatibility-table td {
+    width: 25%;
+    overflow-wrap: anywhere;
 }
 
 .nexus-wba-compatibility-table th,
@@ -119,7 +125,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-    max-width: 1000px;
+    width: 100%;
     margin-top: 24px;
 }
 
