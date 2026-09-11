@@ -12,8 +12,10 @@
 // Activate this script in Class-Nexus-Woo-Button-Alignment-public.php when needed.
 var wooAlignButtons = function () {
     "use strict";
-    document.querySelectorAll("ul.products").forEach(function (productList) {
-        var products = Array.from(productList.querySelectorAll(":scope > li.product"));
+    document.querySelectorAll("ul.products, .wc-block-product-template, .wc-block-grid__products").forEach(function (productList) {
+        var products = Array.from(productList.children).filter(function (product) {
+            return product.matches("li.product, li.wc-block-product, li.wc-block-grid__product");
+        });
         var rows = [];
 
         products.forEach(function (product) {

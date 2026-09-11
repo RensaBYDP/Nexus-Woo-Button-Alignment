@@ -73,7 +73,7 @@ class Nexus_WBA
         if (defined('NEXUS_WBA_VERSION')) {
             $this->version = NEXUS_WBA_VERSION;
         } else {
-            $this->version = '1.0.2';
+            $this->version = '1.0.3';
         }
 
         $this->plugin_name = 'nexus-woo-button-alignment';

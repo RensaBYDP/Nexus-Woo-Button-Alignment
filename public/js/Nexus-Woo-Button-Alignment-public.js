@@ -12,8 +12,8 @@ var wooAlignButtons = function () {
     (function ($) {
         "use strict";
 
-        $("ul.products").each(function () {
-            var products = $(this).children("li.product");
+        $("ul.products, .wc-block-product-template, .wc-block-grid__products").each(function () {
+            var products = $(this).children("li.product, li.wc-block-product, li.wc-block-grid__product");
             var rows = [];
 
             products.css("min-height", "");
