@@ -86,7 +86,7 @@ function nexus_wba_run()
  */
 function nexus_wba_missing_woocommerce_notice()
 {
-    echo '<div class="notice notice-error"><p>' . esc_html__('Nexus-Woo-Button-Alignment requires WooCommerce to be installed and active.', 'Nexus-Woo-Button-Alignment-main') . '</p></div>';
+    echo '<div class="notice notice-error"><p>' . esc_html__('nexus-woo-button-alignment requires WooCommerce to be installed and active.', 'Nexus-Woo-Button-Alignment-main') . '</p></div>';
 }
 
 add_action('plugins_loaded', 'nexus_wba_run', 20);
