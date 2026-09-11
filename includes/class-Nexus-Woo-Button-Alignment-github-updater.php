@@ -21,7 +21,8 @@ class Nexus_WBA_GitHub_Updater
     {
         $this->plugin_file = $plugin_file;
         $this->plugin_basename = plugin_basename($plugin_file);
-        $this->plugin_slug = dirname($this->plugin_basename);
+        $plugin_directory = dirname($this->plugin_basename);
+        $this->plugin_slug = '.' === $plugin_directory ? basename(dirname($plugin_file)) : $plugin_directory;
         $this->current_version = $current_version;
         $this->repository = trim($repository, '/');
 
@@ -128,7 +129,7 @@ class Nexus_WBA_GitHub_Updater
      */
     private function get_latest_release()
     {
-        $cache_key = 'nexus_wba_github_release';
+        $cache_key = 'nexus_wba_github_release_v2';
         $release = get_transient($cache_key);
 
         if (false === $release) {
