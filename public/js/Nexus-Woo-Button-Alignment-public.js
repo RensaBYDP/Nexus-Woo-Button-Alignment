@@ -11,72 +11,47 @@
 var wooAlignButtons = function () {
     (function ($) {
         "use strict";
-        if ($("ul.products").length) {
-            $("ul.products").each(function () {
-                var gridRows = [];
-                var tempRow = [];
-                var wooGridElements = $(this).children("li");
-                wooGridElements.each(function (index) {
-                    if ($(this).css("clear") !== "none" && index !== 0) {
-                        gridRows.push(tempRow);
-                        tempRow = [];
-                    }
-                    tempRow.push(this);
-                    if (wooGridElements.length === index + 1) {
-                        gridRows.push(tempRow);
+        $("ul.products").each(function () {
+            var products = $(this).children("li.product");
+            var rows = [];
+
+            products.each(function () {
+                var product = this;
+                var top = Math.round(product.getBoundingClientRect().top);
+                var row = rows.find(function (candidate) {
+                    return Math.abs(candidate.top - top) <= 2;
+                });
+
+                if (!row) {
+                    row = { top: top, products: [] };
+                    rows.push(row);
+                }
+
+                row.products.push(product);
+            });
+
+            rows.forEach(function (row) {
+                $(row.products).find(".woo-height").css({
+                    "min-height": "",
+                    "padding-bottom": ""
+                });
+
+                var tallestWrapper = 0;
+                $(row.products).each(function () {
+                    var wrapper = $(this).find(".woo-height");
+                    if (wrapper.length) {
+                        tallestWrapper = Math.max(tallestWrapper, wrapper.outerHeight());
                     }
                 });
-                $(gridRows).each(function () {
-                    var title = "h2.woocommerce-loop-product__title";
-                    if ($(title).length) {
-                        var tallestTitle = 0;
-                        $(this).each(function () {
-                            $(this).find(title).css({
-                                "height": "",
-                            });
-                            var titleHeightInfo = $(this).find(title).height();
-                            var titleSpacing = 1;
-                            var titleHeight = titleHeightInfo + titleSpacing;
-                            if (titleHeight > tallestTitle) {
-                                tallestTitle = titleHeight;
-                            }
-                        });
-                        $(this).each(function () {
-                            $(this).find(title).css("height", tallestTitle);
-                        });
-                        if (window.matchMedia("(max-width: 320px)").matches) {
-                            $(this).each(function () {
-                                $(this).find(title).css("height", "auto");
-                            });
-                        }
-                    }
-                    var wooheight = ".woo-height";
-                    if ($(wooheight).length) {
-                        var tallestWoo = 0;
-                        $(this).each(function () {
-                            $(this).find(wooheight).css({
-                                "min-height": "",
-                                "padding-bottom": ""
-                            });
-                            var wooHeightInfo = $(this).find(wooheight).height();
-                            var wooSpacing = 10;
-                            var totalHeight = wooHeightInfo + wooSpacing;
-                            if (totalHeight > tallestWoo) {
-                                tallestWoo = totalHeight;
-                            }
-                        });
-                        $(this).each(function () {
-                            $(this).find(wooheight).css("min-height", tallestWoo);
-                        });
-                        if (window.matchMedia("(max-width: 320px)").matches) {
-                            $(this).each(function () {
-                                $(this).find(wooheight).css("min-height", "0");
-                            });
-                        }
+
+                $(row.products).each(function () {
+                    var wrapper = $(this).find(".woo-height");
+                    if (wrapper.length) {
+                        wrapper.css("min-height", tallestWrapper + 10);
                     }
                 });
             });
-        }
+        });
     })(jQuery);
 };
 window.addEventListener("load", function () {

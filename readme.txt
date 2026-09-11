@@ -5,7 +5,7 @@ Tags: woocommerce, alignment, layout, buttons, product grid
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,9 @@ Example aligned grid (Storefront Theme)
 Example aligned grid (Twenty Seventeen Theme)
 
 Changelog
+1.0.2
+Improved product row detection and added flex layout support for button alignment.
+
 1.0.1
 Repaired plugin loading, asset paths, translation loading, and product-loop wrapper hooks.
 
@@ -85,5 +88,5 @@ Compatible with WooCommerce 10.3.4
 Compatible with WordPress 6.8.3
 
 Upgrade Notice
-1.0.1
+1.0.2
 Maintenance release — recommended for all users
