@@ -34,7 +34,7 @@ if (! defined('WPINC')) {
 /**
  * Current plugin version.
  */
-define('NEXUS_WBA_VERSION', '1.0.1');
+define('NEXUS_WBA_VERSION', '1.0.0');
 
 /**
  * The code that runs during plugin activation.
