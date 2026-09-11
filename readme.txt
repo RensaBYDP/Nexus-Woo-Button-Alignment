@@ -1,25 +1,84 @@
-=== Nexus Woo Button Alignment ===
-Contributors: Rensa, Build Your Digital Palyground
-Tags: woocommerce, buttons, alignment, layout
-Requires at least: 5.0
-Tested up to: 6.7
+Contributors: Rensa Nexus
+Tags: woocommerce, alignment, layout, buttons, product grid
+Requires at least: 4.7
+Tested up to: 6.8.3
 Stable tag: 1.0.1
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Description ==
-Nexus Woo Button Alignment automatically aligns WooCommerce buttons on shop, category, and product loop pages.  
-This ensures a clean, consistent, and professional layout across all product listings.
+A lightweight WooCommerce addon that automatically aligns product buttons for a clean, consistent grid layout.
 
-== Installation ==
-1. Upload the plugin folder to /wp-content/plugins/
-2. Activate the plugin through the WordPress Plugins menu
-3. Buttons will automatically align — no settings required
+Description
+Nexus‑Woo‑Button‑Alignment fixes one of the most common WooCommerce layout issues: misaligned “Add to cart” buttons caused by product titles, prices, or descriptions having different heights.
 
-== Changelog ==
-= 1.0.1 =
-* Improved WooCommerce product loop alignment for classic and block-based product grids.
-* Enhanced compatibility with multiple themes and WooCommerce layouts.
-* Added safer loading checks to ensure the plugin only runs on product loop pages when WooCommerce is active.
+Uneven grids look messy and unprofessional. This plugin solves that instantly using a lightweight JavaScript alignment script and a small wrapper, with no template overrides or theme hacking.
 
-= 1.0.0 =
-* Initial release
+Your product cards become uniform, your buttons line up perfectly, and your shop pages look clean across all devices.
+
+This plugin is not associated with WooCommerce or any of their affiliates.
+
+What Nexus‑Woo‑Button‑Alignment Does
+Aligns “Add to cart” buttons across all product grids
+
+Normalizes product card height
+
+Works with shop pages, category pages, related products, upsells, cross‑sells
+
+Compatible with Elementor product grids
+
+Zero configuration — activate and it works
+
+Lightweight JavaScript and CSS solution
+
+Installation
+Upload Nexus-Woo-Button-Alignment.zip via Plugins → Add New
+
+Or upload the unzipped folder to:
+/wp-content/plugins/
+
+Activate the plugin in Plugins → Installed Plugins
+
+Your WooCommerce buttons are now aligned
+
+Frequently Asked Questions
+How does it work?
+The plugin applies a flexible layout structure to WooCommerce product cards, ensuring the button area stays aligned at the bottom regardless of content height.
+
+Will it work on all themes?
+Yes — as long as the theme uses standard WooCommerce templates.
+If your theme heavily modifies product loops, alignment may not work.
+
+Can I use it inside my own theme?
+Yes. The plugin is fully theme‑friendly and can be extended or overridden in child themes.
+
+Does it work with WooCommerce Blocks?
+No. WooCommerce Blocks use a different product grid structure that does not allow separating button elements.
+
+Will it work on mobile?
+Yes. The layout adjusts automatically on all screen sizes.
+
+Troubleshooting
+If your theme has heavily modified WooCommerce templates, alignment may fail.
+Switching to a WooCommerce‑compatible theme usually resolves the issue.
+
+Screenshots
+Example aligned grid (Writer Theme)
+
+Example aligned grid (Storefront Theme)
+
+Example aligned grid (Twenty Seventeen Theme)
+
+Changelog
+1.0.1
+Repaired plugin loading, asset paths, translation loading, and product-loop wrapper hooks.
+
+1.0.0
+Initial release
+
+Compatible with WooCommerce 10.3.4
+
+Compatible with WordPress 6.8.3
+
+Upgrade Notice
+1.0.1
+Maintenance release — recommended for all users

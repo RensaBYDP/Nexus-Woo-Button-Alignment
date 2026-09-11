@@ -1,151 +1,73 @@
 <?php
 
 /**
- * Plugin Name: Nexus Woo Button Alignment
- * Plugin URI: https://github.com/RensaBYDP/Nexus-Woo-Button-Alignment
- * Description: Automatically aligns WooCommerce buttons on shop, category, and product loop pages for a cleaner and more consistent layout.
- * Version: 1.0.1
- * Author: Rensa, Build Your Digital Playground
- * Author URI: https://github.com/RensaBYDP
- * Requires at least: 5.0
- * Tested up to: 6.7
- * License: GPL-2.0-or-later
+ * The plugin bootstrap file for Nexus-Woo-Button-Alignment.
+ *
+ * This file loads plugin metadata, dependencies, activation/deactivation
+ * handlers, and starts the plugin execution.
+ *
+ * @link              https://rensa.co.za
+ * @since             1.0.0
+ * @package           Nexus_Woo_Button_Alignment
+ *
+ * @wordpress-plugin
+ * Plugin Name:          Nexus-Woo-Button-Alignment
+ * Plugin URI:           https://rensa.co.za
+ * Description:          A lightweight plugin that aligns WooCommerce product buttons for a clean, consistent grid layout.
+ * Version:              1.0.1
+ * Author:               Renier
+ * Author URI:           https://rensa.co.za
+ * License:              GPL-2.0-or-later
+ * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:          nexus-woo-button-alignment
+ * Domain Path:          /languages
  */
 
-if (!defined('ABSPATH')) {
-    exit;
+// If this file is called directly, abort.
+if (! defined('WPINC')) {
+    die;
 }
 
-if (!defined('NEXUS_WOO_BUTTON_ALIGNMENT_VERSION')) {
-    define('NEXUS_WOO_BUTTON_ALIGNMENT_VERSION', '1.0.1');
+/**
+ * Current plugin version.
+ */
+define('NEXUS_WBA_VERSION', '1.0.1');
+
+/**
+ * The code that runs during plugin activation.
+ */
+function activate_nexus_wba()
+{
+    require_once plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment-activator.php';
+    Nexus_WBA_Activator::activate();
 }
 
-if (!defined('NEXUS_WOO_BUTTON_ALIGNMENT_FILE')) {
-    define('NEXUS_WOO_BUTTON_ALIGNMENT_FILE', __FILE__);
+/**
+ * The code that runs during plugin deactivation.
+ */
+function deactivate_nexus_wba()
+{
+    require_once plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment-deactivator.php';
+    Nexus_WBA_Deactivator::deactivate();
 }
 
-if (!class_exists('Nexus_Woo_Updater')) {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-nexus-woo-updater.php';
+register_activation_hook(__FILE__, 'activate_nexus_wba');
+register_deactivation_hook(__FILE__, 'deactivate_nexus_wba');
+
+/**
+ * Load the core plugin class.
+ */
+require plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * @since    1.0.0
+ */
+function run_nexus_wba()
+{
+
+    $plugin = new Nexus_WBA();
+    $plugin->run();
 }
-
-if (!class_exists('Nexus_Woo_Button_Alignment')) {
-    class Nexus_Woo_Button_Alignment
-    {
-        public function __construct()
-        {
-            add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
-            add_action('admin_notices', array($this, 'admin_notice'));
-            $this->init_updater();
-        }
-
-        public function enqueue_styles()
-        {
-            if (!class_exists('WooCommerce')) {
-                return;
-            }
-
-            $is_product_loop = false;
-
-            if (function_exists('is_shop') && is_shop()) {
-                $is_product_loop = true;
-            }
-
-            if (function_exists('is_product_category') && is_product_category()) {
-                $is_product_loop = true;
-            }
-
-            if (function_exists('is_product_tag') && is_product_tag()) {
-                $is_product_loop = true;
-            }
-
-            if (function_exists('is_product_taxonomy') && is_product_taxonomy()) {
-                $is_product_loop = true;
-            }
-
-            if (function_exists('is_post_type_archive') && is_post_type_archive('product')) {
-                $is_product_loop = true;
-            }
-
-            if (function_exists('is_tax') && is_tax(array('product_cat', 'product_tag'))) {
-                $is_product_loop = true;
-            }
-
-            if (!$is_product_loop) {
-                return;
-            }
-
-            wp_enqueue_style(
-                'nexus-woo-button-alignment',
-                plugin_dir_url(__FILE__) . 'assets/style.css',
-                array(),
-                NEXUS_WOO_BUTTON_ALIGNMENT_VERSION
-            );
-        }
-
-        public function admin_notice()
-        {
-            if (!current_user_can('manage_options')) {
-                return;
-            }
-
-            if (!class_exists('WooCommerce')) {
-                echo '<div class="notice notice-warning"><p><strong>Nexus Woo Button Alignment:</strong> WooCommerce is not active. Install and activate WooCommerce to enable product button alignment.</p></div>';
-                return;
-            }
-
-            if (!is_admin()) {
-                $is_product_loop = false;
-
-                if (function_exists('is_shop') && is_shop()) {
-                    $is_product_loop = true;
-                }
-
-                if (function_exists('is_product_category') && is_product_category()) {
-                    $is_product_loop = true;
-                }
-
-                if (function_exists('is_product_tag') && is_product_tag()) {
-                    $is_product_loop = true;
-                }
-
-                if (function_exists('is_post_type_archive') && is_post_type_archive('product')) {
-                    $is_product_loop = true;
-                }
-
-                if (function_exists('is_tax') && is_tax(array('product_cat', 'product_tag'))) {
-                    $is_product_loop = true;
-                }
-
-                if (!$is_product_loop) {
-                    echo '<div class="notice notice-info"><p><strong>Nexus Woo Button Alignment:</strong> This plugin only applies on WooCommerce product loop pages such as shop, category, and tag archives.</p></div>';
-                }
-            }
-        }
-
-        protected function init_updater()
-        {
-            if (!class_exists('Nexus_Woo_Updater')) {
-                return;
-            }
-
-            new Nexus_Woo_Updater(
-                __FILE__,
-                'RensaBYDP',
-                'Nexus-Woo-Button-Alignment',
-                NEXUS_WOO_BUTTON_ALIGNMENT_VERSION
-            );
-        }
-    }
-}
-
-add_action('plugins_loaded', function () {
-    if (!class_exists('WooCommerce')) {
-        return;
-    }
-
-    if (!class_exists('Nexus_Woo_Button_Alignment')) {
-        return;
-    }
-
-    new Nexus_Woo_Button_Alignment();
-}, 20);
+run_nexus_wba();
