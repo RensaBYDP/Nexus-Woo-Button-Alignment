@@ -1,5 +1,9 @@
 <?php
 
+if (! defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Admin area view for Nexus-Woo-Button-Alignment.
  *

@@ -22,7 +22,7 @@
  * Requires Plugins:     woocommerce
  * License:              GPL-2.0-or-later
  * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:          nexus-woo-button-alignment
+ * Text Domain:          Nexus-Woo-Button-Alignment-main
  * Domain Path:          /languages
  */
 
@@ -39,7 +39,7 @@ define('NEXUS_WBA_VERSION', '1.0.1');
 /**
  * The code that runs during plugin activation.
  */
-function activate_nexus_wba()
+function nexus_wba_activate()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment-activator.php';
     Nexus_WBA_Activator::activate();
@@ -48,14 +48,14 @@ function activate_nexus_wba()
 /**
  * The code that runs during plugin deactivation.
  */
-function deactivate_nexus_wba()
+function nexus_wba_deactivate()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment-deactivator.php';
     Nexus_WBA_Deactivator::deactivate();
 }
 
-register_activation_hook(__FILE__, 'activate_nexus_wba');
-register_deactivation_hook(__FILE__, 'deactivate_nexus_wba');
+register_activation_hook(__FILE__, 'nexus_wba_activate');
+register_deactivation_hook(__FILE__, 'nexus_wba_deactivate');
 
 /**
  * Load the core plugin class.
@@ -67,7 +67,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment.p
  *
  * @since    1.0.0
  */
-function run_nexus_wba()
+function nexus_wba_run()
 {
     if (! class_exists('WooCommerce')) {
         if (is_admin()) {
@@ -86,7 +86,7 @@ function run_nexus_wba()
  */
 function nexus_wba_missing_woocommerce_notice()
 {
-    echo '<div class="notice notice-error"><p>' . esc_html__('Nexus-Woo-Button-Alignment requires WooCommerce to be installed and active.', 'nexus-woo-button-alignment') . '</p></div>';
+    echo '<div class="notice notice-error"><p>' . esc_html__('Nexus-Woo-Button-Alignment requires WooCommerce to be installed and active.', 'Nexus-Woo-Button-Alignment-main') . '</p></div>';
 }
 
-add_action('plugins_loaded', 'run_nexus_wba', 20);
+add_action('plugins_loaded', 'nexus_wba_run', 20);

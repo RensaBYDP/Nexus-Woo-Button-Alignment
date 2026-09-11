@@ -1,5 +1,9 @@
 <?php
 
+if (! defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * The file that defines the core plugin class.
  *
@@ -108,7 +112,7 @@ class Nexus_WBA
 
         $plugin_i18n = new Nexus_WBA_i18n();
 
-        $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+        $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_translations');
     }
 
     /**

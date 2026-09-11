@@ -17,12 +17,12 @@ if (! defined('WP_UNINSTALL_PLUGIN')) {
  * Remove plugin options (future‑proof).
  * Add any options here if the plugin stores settings later.
  */
-$plugin_options = array(
+$nexus_wba_plugin_options = array(
     'nexus_woo_button_alignment_settings',
     'nexus_woo_button_alignment_version',
 );
 
-foreach ($plugin_options as $option) {
-    delete_option($option);
-    delete_site_option($option); // Multisite support
+foreach ($nexus_wba_plugin_options as $nexus_wba_option) {
+    delete_option($nexus_wba_option);
+    delete_site_option($nexus_wba_option); // Multisite support
 }

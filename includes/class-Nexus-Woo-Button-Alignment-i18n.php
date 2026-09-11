@@ -1,5 +1,9 @@
 <?php
 
+if (! defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Define the internationalization functionality.
  *
@@ -21,16 +25,14 @@ class Nexus_WBA_i18n
      *
      * @since    1.0.1
      */
-    public function load_plugin_textdomain()
+    public function load_translations()
     {
-        $domain = 'nexus-woo-button-alignment';
-        $locale = determine_locale();
+        $domain = 'Nexus-Woo-Button-Alignment-main';
+        $locale = get_locale();
         $mofile = plugin_dir_path(dirname(__FILE__)) . 'languages/Nexus-Woo-Button-Alignment-' . $locale . '.mo';
 
-        if (file_exists($mofile) && filesize($mofile) > 0 && load_textdomain($domain, $mofile, $locale)) {
-            return;
+        if (file_exists($mofile) && filesize($mofile) > 0) {
+            load_textdomain($domain, $mofile, $locale);
         }
-
-        load_plugin_textdomain($domain, false, dirname(dirname(plugin_basename(__FILE__))) . '/languages/');
     }
 }
