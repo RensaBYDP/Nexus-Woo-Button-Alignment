@@ -2,7 +2,7 @@
  * Plugin Name:       Nexus-Woo-Button-Alignment
  * Plugin URI:        https://rensa.co.za
  * Description:       A lightweight plugin to align WooCommerce "Add to cart" buttons.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Rensa Nexus
  * Author URI:        https://rensa.co.za
  * License:           GPL-2.0+
@@ -11,9 +11,12 @@
 var wooAlignButtons = function () {
     (function ($) {
         "use strict";
+
         $("ul.products").each(function () {
             var products = $(this).children("li.product");
             var rows = [];
+
+            products.css("min-height", "");
 
             products.each(function () {
                 var product = this;
@@ -31,25 +34,13 @@ var wooAlignButtons = function () {
             });
 
             rows.forEach(function (row) {
-                $(row.products).find(".woo-height").css({
-                    "min-height": "",
-                    "padding-bottom": ""
-                });
-
-                var tallestWrapper = 0;
-                $(row.products).each(function () {
-                    var wrapper = $(this).find(".woo-height");
-                    if (wrapper.length) {
-                        tallestWrapper = Math.max(tallestWrapper, wrapper.outerHeight());
-                    }
-                });
+                var tallestProduct = 0;
 
                 $(row.products).each(function () {
-                    var wrapper = $(this).find(".woo-height");
-                    if (wrapper.length) {
-                        wrapper.css("min-height", tallestWrapper + 10);
-                    }
+                    tallestProduct = Math.max(tallestProduct, $(this).outerHeight());
                 });
+
+                $(row.products).css("min-height", tallestProduct);
             });
         });
     })(jQuery);

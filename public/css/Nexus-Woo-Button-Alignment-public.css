@@ -1,15 +1,17 @@
 ul.products li.product {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-ul.products li.product .woo-height {
+ul.products li.product>a.woocommerce-LoopProduct-link,
+ul.products li.product>a.woocommerce-loop-product__link {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
 }
 
-ul.products li.product .woo-height .add_to_cart_button,
-ul.products li.product .woo-height a.button {
+ul.products li.product>a.add_to_cart_button,
+ul.products li.product>a.button,
+ul.products li.product>.button {
     margin-top: auto;
 }

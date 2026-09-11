@@ -85,19 +85,4 @@ class Nexus_WBA_Public
             true
         );
     }
-
-    /**
-     * Add wrapper for woo-height script.
-     *
-     * @since    1.0.1
-     */
-    public function wooalign_product_link_open()
-    {
-        echo wp_kses_post('<div class="woo-height">');
-    }
-
-    public function wooalign_product_link_close()
-    {
-        echo wp_kses_post('</div>');
-    }
 }
