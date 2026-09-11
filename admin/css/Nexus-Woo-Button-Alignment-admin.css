@@ -1,3 +1,35 @@
+.nexus-wba-header-banner {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 0 24px;
+}
+
+.nexus-wba-intro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin-bottom: 24px;
+}
+
+.nexus-wba-logo {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    flex: 0 0 96px;
+}
+
+.nexus-wba-intro h1 {
+    margin: 0 0 8px;
+}
+
+.nexus-wba-intro p {
+    margin: 0;
+    max-width: 720px;
+}
+
 .nexus-wba-compatibility-table {
     max-width: 1000px;
     margin-top: 20px;
@@ -28,4 +60,11 @@
 .nexus-wba-status-info {
     color: #055160;
     background: #cff4fc;
+}
+
+@media screen and (max-width: 600px) {
+    .nexus-wba-intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

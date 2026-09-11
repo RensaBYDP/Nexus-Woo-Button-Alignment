@@ -5,6 +5,7 @@ if (! defined('ABSPATH')) {
 }
 
 $results = isset($results) && is_array($results) ? $results : array();
+$images_url = plugin_dir_url(dirname(__FILE__)) . 'images/';
 
 /**
  * Admin area view for Nexus-Woo-Button-Alignment.
@@ -20,7 +21,22 @@ $results = isset($results) && is_array($results) ? $results : array();
 ?>
 
 <div class="wrap nexus-wba-compatibility">
-    <h1><?php esc_html_e('Woo Button Alignment Compatibility', 'nexus-woo-button-alignment-main'); ?></h1>
+    <img
+        class="nexus-wba-header-banner"
+        src="<?php echo esc_url($images_url . 'header-banner.png'); ?>"
+        alt="<?php esc_attr_e('Woo Button Alignment', 'nexus-woo-button-alignment-main'); ?>">
+
+    <div class="nexus-wba-intro">
+        <img
+            class="nexus-wba-logo"
+            src="<?php echo esc_url($images_url . 'Woo-Button-Alignment-Logo.png'); ?>"
+            alt="<?php esc_attr_e('Woo Button Alignment logo', 'nexus-woo-button-alignment-main'); ?>">
+        <div>
+            <h1><?php esc_html_e('Woo Button Alignment Compatibility', 'nexus-woo-button-alignment-main'); ?></h1>
+            <p><?php esc_html_e('Nexus-Woo-Button-Alignment keeps WooCommerce product-grid buttons aligned across standard classic and block-based layouts.', 'nexus-woo-button-alignment-main'); ?></p>
+        </div>
+    </div>
+
     <p><?php esc_html_e('This check reports the environment detected by the plugin. A passing platform check does not guarantee compatibility with themes that replace WooCommerce product templates.', 'nexus-woo-button-alignment-main'); ?></p>
 
     <table class="widefat striped nexus-wba-compatibility-table">
