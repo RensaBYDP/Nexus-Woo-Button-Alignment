@@ -12,7 +12,7 @@
  *
  * @package    Nexus_Woo_Button_Alignment
  * @subpackage Nexus_Woo_Button_Alignment/includes
- * @author     Renier <support@rensa.co.za>
+ * @author     Rensa Nexus <support@rensa.co.za>
  */
 class Nexus_WBA_Loader
 {

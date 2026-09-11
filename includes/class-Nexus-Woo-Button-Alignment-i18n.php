@@ -11,7 +11,7 @@
  *
  * @package    Nexus_Woo_Button_Alignment
  * @subpackage Nexus_Woo_Button_Alignment/includes
- * @author     Renier <support@rensa.co.za>
+ * @author     Rensa Nexus <support@rensa.co.za>
  */
 class Nexus_WBA_i18n
 {
@@ -27,8 +27,7 @@ class Nexus_WBA_i18n
         $locale = determine_locale();
         $mofile = plugin_dir_path(dirname(__FILE__)) . 'languages/Nexus-Woo-Button-Alignment-' . $locale . '.mo';
 
-        if (file_exists($mofile)) {
-            load_textdomain($domain, $mofile, $locale);
+        if (file_exists($mofile) && filesize($mofile) > 0 && load_textdomain($domain, $mofile, $locale)) {
             return;
         }
 

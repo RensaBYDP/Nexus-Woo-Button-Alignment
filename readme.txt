@@ -1,10 +1,13 @@
 Contributors: Rensa Nexus
 Tags: woocommerce, alignment, layout, buttons, product grid
-Requires at least: 4.7
+Requires at least: 5.0
+Requires PHP: 7.4
 Tested up to: 6.8.3
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Requires WooCommerce: 3.0
 
 A lightweight WooCommerce addon that automatically aligns product buttons for a clean, consistent grid layout.
 

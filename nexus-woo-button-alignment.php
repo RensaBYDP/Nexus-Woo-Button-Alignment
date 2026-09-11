@@ -15,8 +15,11 @@
  * Plugin URI:           https://rensa.co.za
  * Description:          A lightweight plugin that aligns WooCommerce product buttons for a clean, consistent grid layout.
  * Version:              1.0.1
- * Author:               Renier
+ * Author:               Rensa Nexus
  * Author URI:           https://rensa.co.za
+ * Requires at least:    5.0
+ * Requires PHP:         7.4
+ * Requires Plugins:     woocommerce
  * License:              GPL-2.0-or-later
  * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:          nexus-woo-button-alignment
@@ -66,8 +69,24 @@ require plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment.p
  */
 function run_nexus_wba()
 {
+    if (! class_exists('WooCommerce')) {
+        if (is_admin()) {
+            add_action('admin_notices', 'nexus_wba_missing_woocommerce_notice');
+        }
+
+        return;
+    }
 
     $plugin = new Nexus_WBA();
     $plugin->run();
 }
-run_nexus_wba();
+
+/**
+ * Display an admin notice when WooCommerce is unavailable.
+ */
+function nexus_wba_missing_woocommerce_notice()
+{
+    echo '<div class="notice notice-error"><p>' . esc_html__('Nexus-Woo-Button-Alignment requires WooCommerce to be installed and active.', 'nexus-woo-button-alignment') . '</p></div>';
+}
+
+add_action('plugins_loaded', 'run_nexus_wba', 20);

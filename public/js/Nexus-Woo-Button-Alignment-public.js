@@ -3,7 +3,7 @@
  * Plugin URI:        https://rensa.co.za
  * Description:       A lightweight plugin to align WooCommerce "Add to cart" buttons.
  * Version:           1.0.1
- * Author:            Renier
+ * Author:            Rensa Nexus
  * Author URI:        https://rensa.co.za
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

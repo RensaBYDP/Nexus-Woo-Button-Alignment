@@ -11,7 +11,7 @@
  *
  * @package    Nexus_Woo_Button_Alignment
  * @subpackage Nexus_Woo_Button_Alignment/public
- * @author     Renier <support@rensa.co.za>
+ * @author     Rensa Nexus <support@rensa.co.za>
  */
 class Nexus_WBA_Public
 {
@@ -89,11 +89,11 @@ class Nexus_WBA_Public
      */
     public function wooalign_product_link_open()
     {
-        echo '<div class="woo-height">';
+        echo wp_kses_post('<div class="woo-height">');
     }
 
     public function wooalign_product_link_close()
     {
-        echo '</div>';
+        echo wp_kses_post('</div>');
     }
 }

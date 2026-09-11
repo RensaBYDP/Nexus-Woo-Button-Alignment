@@ -1,4 +1,4 @@
-# Copyright (C) 2025 Renier
+# Copyright (C) 2025 Rensa Nexus
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
@@ -27,7 +27,7 @@ msgid "A lightweight plugin to align WooCommerce \"Add to cart\" buttons."
 msgstr "Ein leichtes Plugin zur Ausrichtung von WooCommerce \"Add to Cart\" Buttons."
 
 #. Author of the plugin
-msgid "Renier"
+msgid "Rensa Nexus"
 msgstr ""
 
 #. Author URI of the plugin
