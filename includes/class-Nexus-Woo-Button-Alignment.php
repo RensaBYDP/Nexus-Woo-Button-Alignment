@@ -144,7 +144,7 @@ class Nexus_WBA
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 
-        $this->loader->add_action('woocommerce_before_shop_loop_item', $plugin_public, 'wooalign_product_link_open', 9);
+        $this->loader->add_action('woocommerce_before_shop_loop_item_title', $plugin_public, 'wooalign_product_link_open', 1);
         $this->loader->add_action('woocommerce_after_shop_loop_item', $plugin_public, 'wooalign_product_link_close', 11);
     }
 
