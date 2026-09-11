@@ -130,6 +130,10 @@ class Nexus_WBA_Admin
         }
 
         $results = $this->get_compatibility_results();
+        $summary = $this->get_health_summary($results);
+        $layout_details = $this->get_layout_details();
+        $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : '';
+        $checked_at = current_time('mysql');
         require plugin_dir_path(__FILE__) . 'partials/Nexus-Woo-Button-Alignment-admin-display.php';
     }
 
@@ -186,5 +190,57 @@ class Nexus_WBA_Admin
         }
 
         return false;
+    }
+
+    /**
+     * Summarize the compatibility results for the dashboard header.
+     *
+     * @param array<int, array<string, string>> $results Compatibility results.
+     * @return array<string, string|int>
+     */
+    private function get_health_summary($results)
+    {
+        $failed = 0;
+
+        foreach ($results as $result) {
+            if ('fail' === $result['status']) {
+                $failed++;
+            }
+        }
+
+        $total = count($results);
+
+        return array(
+            'status' => $failed ? 'warning' : 'pass',
+            'label'  => $failed ? __('Needs attention', 'nexus-woo-button-alignment-main') : __('Ready to use', 'nexus-woo-button-alignment-main'),
+            'passed' => $total - $failed,
+            'total'  => $total,
+        );
+    }
+
+    /**
+     * Describe the product layouts supported by the frontend assets.
+     *
+     * @return array<int, array<string, string>>
+     */
+    private function get_layout_details()
+    {
+        return array(
+            array(
+                'name'     => __('Classic WooCommerce grids', 'nexus-woo-button-alignment-main'),
+                'selector' => 'ul.products > li.product',
+                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+            ),
+            array(
+                'name'     => __('Product template blocks', 'nexus-woo-button-alignment-main'),
+                'selector' => '.wc-block-product-template > li',
+                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+            ),
+            array(
+                'name'     => __('Legacy product grid blocks', 'nexus-woo-button-alignment-main'),
+                'selector' => '.wc-block-grid__products > li.wc-block-grid__product',
+                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+            ),
+        );
     }
 }

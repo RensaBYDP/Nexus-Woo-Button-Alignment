@@ -30,6 +30,59 @@
     max-width: 720px;
 }
 
+.nexus-wba-health {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 4px solid #2271b1;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+}
+
+.nexus-wba-health-warning {
+    border-left-color: #dba617;
+}
+
+.nexus-wba-health h2 {
+    margin: 4px 0;
+}
+
+.nexus-wba-health p {
+    margin: 0;
+}
+
+.nexus-wba-eyebrow {
+    color: #50575e;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.nexus-wba-health-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.nexus-wba-section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    max-width: 1000px;
+}
+
+.nexus-wba-section-heading h2 {
+    margin: 24px 0 8px;
+}
+
+.nexus-wba-section-heading span {
+    color: #646970;
+    font-size: 12px;
+}
+
 .nexus-wba-compatibility-table {
     max-width: 1000px;
     margin-top: 20px;
@@ -62,9 +115,64 @@
     background: #cff4fc;
 }
 
+.nexus-wba-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin-top: 24px;
+}
+
+.nexus-wba-panel {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #dcdcde;
+}
+
+.nexus-wba-panel h2 {
+    margin-top: 0;
+}
+
+.nexus-wba-layout-list,
+.nexus-wba-link-list {
+    margin: 16px 0 0;
+}
+
+.nexus-wba-layout-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 10px;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f1;
+}
+
+.nexus-wba-layout-list code {
+    grid-column: 2;
+    color: #50575e;
+}
+
+.nexus-wba-link-list li {
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 600px) {
     .nexus-wba-intro {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .nexus-wba-health,
+    .nexus-wba-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nexus-wba-health-actions {
+        margin-top: 16px;
+    }
+
+    .nexus-wba-dashboard-grid {
+        grid-template-columns: 1fr;
     }
 }

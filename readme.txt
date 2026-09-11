@@ -5,7 +5,7 @@ Tags: woocommerce, alignment, layout, buttons, product grid
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ Example aligned grid (Storefront Theme)
 Example aligned grid (Twenty Seventeen Theme)
 
 Changelog
+1.0.1
+Expanded the WooCommerce submenu with a health overview, platform details, supported layout modes, shop link, refresh check, and troubleshooting links.
+Added the admin banner and plugin logo presentation.
+
 1.0.3
 Added a compatibility check for WordPress, PHP, WooCommerce, and the active theme.
 Added support for standard WooCommerce product blocks.

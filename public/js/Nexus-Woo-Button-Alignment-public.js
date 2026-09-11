@@ -2,7 +2,7 @@
  * Plugin Name:       Nexus-Woo-Button-Alignment
  * Plugin URI:        https://rensa.co.za
  * Description:       A lightweight plugin to align WooCommerce "Add to cart" buttons.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Rensa Nexus
  * Author URI:        https://rensa.co.za
  * License:           GPL-2.0+
