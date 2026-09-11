@@ -87,14 +87,15 @@ class Nexus_WBA_Admin
     }
 
     /**
-     * Add the compatibility page under Settings.
+     * Add the compatibility page under WooCommerce.
      */
     public function add_compatibility_page()
     {
-        add_options_page(
+        add_submenu_page(
+            'woocommerce',
             __('Woo Button Alignment', 'nexus-woo-button-alignment-main'),
-            __('Woo Button Alignment', 'nexus-woo-button-alignment-main'),
-            'manage_options',
+            __('Button Alignment', 'nexus-woo-button-alignment-main'),
+            'manage_woocommerce',
             'nexus-wba-compatibility',
             array($this, 'render_compatibility_page')
         );
@@ -105,11 +106,11 @@ class Nexus_WBA_Admin
      */
     public function display_compatibility_notice()
     {
-        if (! current_user_can('manage_options') || ! $this->has_compatibility_issue()) {
+        if (! current_user_can('manage_woocommerce') || ! $this->has_compatibility_issue()) {
             return;
         }
 
-        $page_url = admin_url('options-general.php?page=nexus-wba-compatibility');
+        $page_url = admin_url('admin.php?page=nexus-wba-compatibility');
 
         printf(
             '<div class="notice notice-warning"><p>%s <a href="%s">%s</a></p></div>',
@@ -124,7 +125,7 @@ class Nexus_WBA_Admin
      */
     public function render_compatibility_page()
     {
-        if (! current_user_can('manage_options')) {
+        if (! current_user_can('manage_woocommerce')) {
             wp_die(esc_html__('You do not have permission to view this page.', 'nexus-woo-button-alignment-main'));
         }
 

@@ -61,7 +61,7 @@ Does it work with WooCommerce Blocks?
 Yes. The plugin supports the standard WooCommerce product-template and product-grid block structures. Custom block markup may still require theme-specific adjustments.
 
 Where can I view the compatibility check?
-Go to Settings → Woo Button Alignment in the WordPress admin area. The check reports the detected WordPress, PHP, WooCommerce, and active theme details.
+Go to WooCommerce → Button Alignment in the WordPress admin area. The check reports the detected WordPress, PHP, WooCommerce, and active theme details.
 
 Will it work on mobile?
 Yes. The layout adjusts automatically on all screen sizes.
