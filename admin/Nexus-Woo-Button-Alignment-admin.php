@@ -93,8 +93,8 @@ class Nexus_WBA_Admin
     {
         add_submenu_page(
             'woocommerce',
-            __('Woo Button Alignment', 'nexus-woo-button-alignment-main'),
-            __('Button Alignment', 'nexus-woo-button-alignment-main'),
+            __('Woo Button Alignment', 'nexus-woo-button-alignment'),
+            __('Button Alignment', 'nexus-woo-button-alignment'),
             'manage_woocommerce',
             'nexus-wba-compatibility',
             array($this, 'render_compatibility_page')
@@ -114,9 +114,9 @@ class Nexus_WBA_Admin
 
         printf(
             '<div class="notice notice-warning"><p>%s <a href="%s">%s</a></p></div>',
-            esc_html__('Nexus-Woo-Button-Alignment needs your attention: one or more compatibility requirements are not met.', 'nexus-woo-button-alignment-main'),
+            esc_html__('Nexus-Woo-Button-Alignment needs your attention: one or more compatibility requirements are not met.', 'nexus-woo-button-alignment'),
             esc_url($page_url),
-            esc_html__('View compatibility check', 'nexus-woo-button-alignment-main')
+            esc_html__('View compatibility check', 'nexus-woo-button-alignment')
         );
     }
 
@@ -126,14 +126,14 @@ class Nexus_WBA_Admin
     public function render_compatibility_page()
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('You do not have permission to view this page.', 'nexus-woo-button-alignment-main'));
+            wp_die(esc_html__('You do not have permission to view this page.', 'nexus-woo-button-alignment'));
         }
 
-        $results = $this->get_compatibility_results();
-        $summary = $this->get_health_summary($results);
-        $layout_details = $this->get_layout_details();
-        $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : '';
-        $checked_at = current_time('mysql');
+        $nexus_wba_results = $this->get_compatibility_results();
+        $nexus_wba_summary = $this->get_health_summary($nexus_wba_results);
+        $nexus_wba_layout_details = $this->get_layout_details();
+        $nexus_wba_shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : '';
+        $nexus_wba_checked_at = current_time('mysql');
         require plugin_dir_path(__FILE__) . 'partials/Nexus-Woo-Button-Alignment-admin-display.php';
     }
 
@@ -150,27 +150,27 @@ class Nexus_WBA_Admin
 
         return array(
             array(
-                'component' => __('WordPress', 'nexus-woo-button-alignment-main'),
+                'component' => __('WordPress', 'nexus-woo-button-alignment'),
                 'value'     => get_bloginfo('version'),
-                'required'  => __('5.0 or newer', 'nexus-woo-button-alignment-main'),
+                'required'  => __('5.0 or newer', 'nexus-woo-button-alignment'),
                 'status'    => version_compare(get_bloginfo('version'), '5.0', '>=') ? 'pass' : 'fail',
             ),
             array(
-                'component' => __('PHP', 'nexus-woo-button-alignment-main'),
+                'component' => __('PHP', 'nexus-woo-button-alignment'),
                 'value'     => PHP_VERSION,
-                'required'  => __('7.4 or newer', 'nexus-woo-button-alignment-main'),
+                'required'  => __('7.4 or newer', 'nexus-woo-button-alignment'),
                 'status'    => version_compare(PHP_VERSION, '7.4', '>=') ? 'pass' : 'fail',
             ),
             array(
-                'component' => __('WooCommerce', 'nexus-woo-button-alignment-main'),
-                'value'     => $woocommerce_version ? $woocommerce_version : __('Not detected', 'nexus-woo-button-alignment-main'),
-                'required'  => __('3.0 or newer', 'nexus-woo-button-alignment-main'),
+                'component' => __('WooCommerce', 'nexus-woo-button-alignment'),
+                'value'     => $woocommerce_version ? $woocommerce_version : __('Not detected', 'nexus-woo-button-alignment'),
+                'required'  => __('3.0 or newer', 'nexus-woo-button-alignment'),
                 'status'    => $woocommerce_version && version_compare($woocommerce_version, '3.0', '>=') ? 'pass' : 'fail',
             ),
             array(
-                'component' => __('Active theme', 'nexus-woo-button-alignment-main'),
+                'component' => __('Active theme', 'nexus-woo-button-alignment'),
                 'value'     => $theme->get('Name') . ' ' . $theme->get('Version'),
-                'required'  => $is_block_theme ? __('Block theme detected', 'nexus-woo-button-alignment-main') : __('Classic theme detected', 'nexus-woo-button-alignment-main'),
+                'required'  => $is_block_theme ? __('Block theme detected', 'nexus-woo-button-alignment') : __('Classic theme detected', 'nexus-woo-button-alignment'),
                 'status'    => 'info',
             ),
         );
@@ -212,7 +212,7 @@ class Nexus_WBA_Admin
 
         return array(
             'status' => $failed ? 'warning' : 'pass',
-            'label'  => $failed ? __('Needs attention', 'nexus-woo-button-alignment-main') : __('Ready to use', 'nexus-woo-button-alignment-main'),
+            'label'  => $failed ? __('Needs attention', 'nexus-woo-button-alignment') : __('Ready to use', 'nexus-woo-button-alignment'),
             'passed' => $total - $failed,
             'total'  => $total,
         );
@@ -227,19 +227,19 @@ class Nexus_WBA_Admin
     {
         return array(
             array(
-                'name'     => __('Classic WooCommerce grids', 'nexus-woo-button-alignment-main'),
+                'name'     => __('Classic WooCommerce grids', 'nexus-woo-button-alignment'),
                 'selector' => 'ul.products > li.product',
-                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+                'status'   => __('Supported', 'nexus-woo-button-alignment'),
             ),
             array(
-                'name'     => __('Product template blocks', 'nexus-woo-button-alignment-main'),
+                'name'     => __('Product template blocks', 'nexus-woo-button-alignment'),
                 'selector' => '.wc-block-product-template > li',
-                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+                'status'   => __('Supported', 'nexus-woo-button-alignment'),
             ),
             array(
-                'name'     => __('Legacy product grid blocks', 'nexus-woo-button-alignment-main'),
+                'name'     => __('Legacy product grid blocks', 'nexus-woo-button-alignment'),
                 'selector' => '.wc-block-grid__products > li.wc-block-grid__product',
-                'status'   => __('Supported', 'nexus-woo-button-alignment-main'),
+                'status'   => __('Supported', 'nexus-woo-button-alignment'),
             ),
         );
     }

@@ -14,7 +14,7 @@
  * Plugin Name:          Nexus-Woo-Button-Alignment
  * Plugin URI:           https://rensa.co.za
  * Description:          A lightweight plugin that aligns WooCommerce product buttons for a clean, consistent grid layout.
- * Version:              1.0.0
+ * Version:              1.0.1
  * Author:               Rensa Nexus
  * Author URI:           https://rensa.co.za
  * Requires at least:    5.0
@@ -22,9 +22,8 @@
  * Requires Plugins:     woocommerce
  * License:              GPL-2.0-or-later
  * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:          nexus-woo-button-alignment-main
+ * Text Domain:          nexus-woo-button-alignment
  * Domain Path:          /languages
- * Update URI:           https://github.com/RensaBYDP/nexus-woo-button-alignment
  */
 
 // If this file is called directly, abort.
@@ -35,15 +34,7 @@ if (! defined('WPINC')) {
 /**
  * Current plugin version.
  */
-define('NEXUS_WBA_VERSION', '1.0.0');
-
-require_once plugin_dir_path(__FILE__) . 'includes/class-Nexus-Woo-Button-Alignment-github-updater.php';
-
-new Nexus_WBA_GitHub_Updater(
-    __FILE__,
-    NEXUS_WBA_VERSION,
-    'RensaBYDP/nexus-woo-button-alignment'
-);
+define('NEXUS_WBA_VERSION', '1.0.1');
 
 /**
  * The code that runs during plugin activation.
@@ -93,7 +84,7 @@ function nexus_wba_run()
  */
 function nexus_wba_missing_woocommerce_notice()
 {
-    echo '<div class="notice notice-error"><p>' . esc_html__('nexus-woo-button-alignment requires WooCommerce to be installed and active.', 'nexus-woo-button-alignment-main') . '</p></div>';
+    echo '<div class="notice notice-error"><p>' . esc_html__('nexus-woo-button-alignment requires WooCommerce to be installed and active.', 'nexus-woo-button-alignment') . '</p></div>';
 }
 
 add_action('plugins_loaded', 'nexus_wba_run', 20);

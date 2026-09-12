@@ -27,7 +27,7 @@ class Nexus_WBA_i18n
      */
     public function load_translations()
     {
-        $domain = 'nexus-woo-button-alignment-main';
+        $domain = 'nexus-woo-button-alignment';
         $locale = get_locale();
         $mofile = plugin_dir_path(dirname(__FILE__)) . 'languages/Nexus-Woo-Button-Alignment-' . $locale . '.mo';
 

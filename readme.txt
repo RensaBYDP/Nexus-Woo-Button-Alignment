@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Requires WooCommerce: 3.0
 
+== Description ==
+
 Align WooCommerce product buttons for clean, consistent product grids.
 
 Nexus‑Woo‑Button‑Alignment fixes one of the most common WooCommerce layout issues: misaligned “Add to cart” buttons caused by product titles, prices, or descriptions having different heights.
@@ -96,7 +98,4 @@ Compatible with WordPress 6.8.3
 
 Upgrade Notice
 1.0.1
-Adds the WooCommerce compatibility dashboard and GitHub release update support.
-
-GitHub Releases
-For automatic updates, publish a GitHub Release with a tag such as v1.0.1 and attach nexus-woo-button-alignment.zip. The ZIP must contain the plugin folder at its top level and must include nexus-woo-button-alignment.php in that folder.
+Adds the WooCommerce compatibility dashboard.

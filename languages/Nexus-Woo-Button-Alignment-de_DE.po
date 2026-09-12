@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2026-09-11T09:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
-"X-Domain: Nexus-Woo-Button-Alignment-main\n"
+"X-Domain: nexus-woo-button-alignment\n"
 
 #. Plugin Name of the plugin
 msgid "Nexus-Woo-Button-Alignment"
