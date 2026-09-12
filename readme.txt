@@ -4,7 +4,7 @@ Contributors: Rensa Nexus
 Tags: woocommerce, alignment, layout, buttons, product grid
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 7.1
+Tested up to: 6.8
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -23,7 +23,8 @@ Your product cards become uniform, your buttons line up perfectly, and your shop
 
 This plugin is not associated with WooCommerce or any of their affiliates.
 
-What Nexus‑Woo‑Button‑Alignment Does
+== Features ==
+
 Aligns “Add to cart” buttons across all product grids
 
 Normalizes product card height
@@ -38,7 +39,8 @@ Admin compatibility check for WordPress, PHP, WooCommerce, and the active theme
 
 Lightweight JavaScript and CSS solution
 
-Installation
+== Installation ==
+
 Upload Nexus-Woo-Button-Alignment.zip via Plugins → Add New
 
 Or upload the unzipped folder to:
@@ -48,7 +50,8 @@ Activate the plugin in Plugins → Installed Plugins
 
 Your WooCommerce buttons are now aligned
 
-Frequently Asked Questions
+== Frequently Asked Questions ==
+
 How does it work?
 The plugin applies a flexible layout structure to WooCommerce product cards, ensuring the button area stays aligned at the bottom regardless of content height.
 
@@ -68,18 +71,21 @@ Go to WooCommerce → Button Alignment in the WordPress admin area. The check re
 Will it work on mobile?
 Yes. The layout adjusts automatically on all screen sizes.
 
-Troubleshooting
+== Troubleshooting ==
+
 If your theme has heavily modified WooCommerce templates, alignment may fail.
 Switching to a WooCommerce‑compatible theme usually resolves the issue.
 
-Screenshots
+== Screenshots ==
+
 Example aligned grid (Writer Theme)
 
 Example aligned grid (Storefront Theme)
 
 Example aligned grid (Twenty Seventeen Theme)
 
-Changelog
+== Changelog ==
+
 1.0.1
 Expanded the WooCommerce submenu with a health overview, platform details, supported layout modes, shop link, refresh check, troubleshooting links, banner, and plugin logo.
 
@@ -92,10 +98,13 @@ Improved product row detection and added flex layout support for button alignmen
 Repaired plugin loading, asset paths, translation loading, and product-loop wrapper hooks.
 Initial release
 
+== Compatibility ==
+
 Compatible with WooCommerce 10.3.4
 
 Compatible with WordPress 6.8.3
 
-Upgrade Notice
+== Upgrade Notice ==
+
 1.0.1
 Adds the WooCommerce compatibility dashboard.
